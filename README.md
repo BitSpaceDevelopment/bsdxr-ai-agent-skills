@@ -4,7 +4,7 @@ Precision-built system prompts for XR professionals. Each skill gives an AI assi
 
 The accompanying `index.html` is a single-page reference site: explains what agent skills are, lists supported platforms, and provides copyable prompts for each skill.
 
-![BSD XR — Immersive Technology Experts](bsd-branding-repo/BSDXR%20Promo.png)
+![BSD XR — Immersive Technology Experts](https://raw.githubusercontent.com/BitSpaceDevelopment/bsd-branding-repo/main/BSDXR%20Promo.png)
 
 ## Supported Platforms
 
