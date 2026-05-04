@@ -1134,27 +1134,32 @@ const PLATFORMS = [
   {
     name: 'Claude Code',
     desc: "Anthropic's CLI for Claude — native agent skill system with frontmatter.",
-    format: 'Markdown skill file .md'
+    format: 'Markdown skill file .md',
+    url: 'https://github.com/BitSpaceDevelopment/bsdxr-ai-agent-skills/blob/main/claude/README.md'
   },
   {
     name: 'OpenCode',
     desc: 'Open-source AI coding terminal built for power users.',
-    format: 'TOML/Markdown agent config'
+    format: 'TOML/Markdown agent config',
+    url: 'https://github.com/BitSpaceDevelopment/bsdxr-ai-agent-skills/blob/main/opencode/README.md'
   },
   {
     name: 'Codex',
     desc: "OpenAI's CLI coding agent for automated engineering tasks.",
-    format: 'Markdown system prompt'
+    format: 'Markdown system prompt',
+    url: 'https://github.com/BitSpaceDevelopment/bsdxr-ai-agent-skills/blob/main/codex/README.md'
   },
   {
     name: 'GitHub Copilot',
     desc: 'VS Code and GitHub AI assistant with repo-level instructions.',
-    format: '.github/copilot-instructions.md'
+    format: '.github/copilot-instructions.md',
+    url: 'https://github.com/BitSpaceDevelopment/bsdxr-ai-agent-skills/blob/main/copilot/README.md'
   },
   {
     name: 'Gemini CLI',
     desc: "Google's Gemini terminal agent for coding and research workflows.",
-    format: 'Gemini agent config'
+    format: 'Gemini agent config',
+    url: 'https://github.com/BitSpaceDevelopment/bsdxr-ai-agent-skills/blob/main/gemini/README.md'
   }
 ];
 
@@ -1182,8 +1187,11 @@ function buildWhyCards() {
 function buildPlatforms() {
   const grid = document.getElementById('platforms-grid');
   PLATFORMS.forEach(function(p) {
-    const el = document.createElement('div');
+    const el = document.createElement('a');
     el.className = 'platform-card';
+    el.href = p.url;
+    el.target = '_blank';
+    el.rel = 'noopener';
     const name = document.createElement('div');
     name.className = 'platform-name';
     name.textContent = p.name;
