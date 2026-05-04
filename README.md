@@ -1,8 +1,10 @@
-# Agent Skills
+# XR Agent Skills
 
-Precision-built system prompts for AI coding assistants. Each skill is a carefully engineered set of instructions that transforms an AI coding tool into a focused, opinionated development partner — consistent behavior, every session.
+Precision-built system prompts for XR professionals. Each skill gives an AI assistant a defined role, domain knowledge, and a set of priorities — so it can help you design workshops, scope research, or plan safety training without starting from scratch every session.
 
 The accompanying `index.html` is a single-page reference site: explains what agent skills are, lists supported platforms, and provides copyable prompts for each skill.
+
+![BSD XR — Immersive Technology Experts](bsd-branding-repo/BSDXR%20Promo.png)
 
 ## Supported Platforms
 
@@ -16,78 +18,100 @@ The accompanying `index.html` is a single-page reference site: explains what age
 
 ## Available Skills
 
-### Developer
+### XR Educator
 
-A senior full-stack development agent. Writes clean, production-ready code with strong opinions on architecture, testing, and security.
+Workshop designer and educator persona. Helps instructors, curriculum designers, and education teams plan and run workshops that incorporate XR devices and experiences.
 
-**Use for:** implementation tasks, code review, debugging, technical design decisions.
-
-**Covers:** core behavior, code quality, architecture, error handling, security, testing, debugging, communication, workflow.
+**Covers:** learning objective framing, hardware selection, content platforms, facilitation flow, debrief structure, accessibility, common pitfalls.
 
 | Platform | Path | Status |
 |----------|------|--------|
-| Claude Code | [`claude/developer/developer.md`](claude/developer/developer.md) | Active |
-| OpenCode | [`opencode/developer/`](opencode/developer/) | Planned |
-| Codex | [`codex/developer/`](codex/developer/) | Planned |
-| Copilot | [`copilot/developer/`](copilot/developer/) | Planned |
-| Gemini CLI | [`gemini/developer/`](gemini/developer/) | Planned |
+| Claude Code | [`claude/xr-educator/xr-educator.md`](claude/xr-educator/xr-educator.md) | Active |
+| OpenCode | [`opencode/xr-educator/`](opencode/xr-educator/) | Planned |
+| Codex | [`codex/xr-educator/`](codex/xr-educator/) | Planned |
+| Copilot | [`copilot/xr-educator/`](copilot/xr-educator/) | Planned |
+| Gemini CLI | [`gemini/xr-educator/`](gemini/xr-educator/) | Planned |
 
-To use on Claude Code, copy to your project:
+### XR Researcher
+
+Research strategist persona. Helps academics, scientists, and R&D teams identify impactful ways to incorporate XR into their research.
+
+**Covers:** research application areas, hardware for research, software frameworks, data collection and measurement, IRB and ethics, study design considerations.
+
+| Platform | Path | Status |
+|----------|------|--------|
+| Claude Code | [`claude/xr-researcher/xr-researcher.md`](claude/xr-researcher/xr-researcher.md) | Active |
+| OpenCode | [`opencode/xr-researcher/`](opencode/xr-researcher/) | Planned |
+| Codex | [`codex/xr-researcher/`](codex/xr-researcher/) | Planned |
+| Copilot | [`copilot/xr-researcher/`](copilot/xr-researcher/) | Planned |
+| Gemini CLI | [`gemini/xr-researcher/`](gemini/xr-researcher/) | Planned |
+
+### XR Safety Manager
+
+Safety training specialist persona. Helps HSE officers and safety managers design and deploy XR training programs that reduce incidents and build genuine competency.
+
+**Covers:** high-value training applications, hardware for fleet deployment, authoring platforms, BSD XR for custom scenarios, implementation guidance, device management at scale.
+
+| Platform | Path | Status |
+|----------|------|--------|
+| Claude Code | [`claude/xr-safety-manager/xr-safety-manager.md`](claude/xr-safety-manager/xr-safety-manager.md) | Active |
+| OpenCode | [`opencode/xr-safety-manager/`](opencode/xr-safety-manager/) | Planned |
+| Codex | [`codex/xr-safety-manager/`](codex/xr-safety-manager/) | Planned |
+| Copilot | [`copilot/xr-safety-manager/`](copilot/xr-safety-manager/) | Planned |
+| Gemini CLI | [`gemini/xr-safety-manager/`](gemini/xr-safety-manager/) | Planned |
+
+## Quick Start
+
+Copy any Claude skill into your project:
+
+```bash
+cp claude/xr-educator/xr-educator.md .claude/agents/xr-educator.md
+cp claude/xr-researcher/xr-researcher.md .claude/agents/xr-researcher.md
+cp claude/xr-safety-manager/xr-safety-manager.md .claude/agents/xr-safety-manager.md
 ```
-cp claude/developer/developer.md .claude/agents/developer.md
-```
+
+For other platforms, copy the prompt body from the skill file (everything after the `---` frontmatter block) and paste it into your platform's system prompt or instructions file.
 
 ## Project Structure
 
 ```
 agentskills/
-├── index.html               # Single-page reference site
+├── index.html                        # Single-page reference site
 ├── README.md
-├── bsd-branding-repo/       # Branding submodule (logos, colors, fonts)
+├── bsd-branding-repo/                # Branding submodule (logos, colors, fonts)
 ├── .claude/
 │   └── agents/
-│       └── developer.md     # Active Claude Code agent
+│       ├── xr-educator.md
+│       ├── xr-researcher.md
+│       └── xr-safety-manager.md
 ├── claude/
-│   └── developer/
-│       └── developer.md     # Source skill definition
+│   ├── xr-educator/
+│   ├── xr-researcher/
+│   └── xr-safety-manager/
 ├── opencode/
-│   └── developer/
 ├── codex/
-│   └── developer/
 ├── copilot/
-│   └── developer/
 └── gemini/
-    └── developer/
 ```
 
 ## Design Principles
 
-- **Platform-native** — each skill uses the idiomatic format for its target platform, no lowest-common-denominator abstractions.
-- **Consistent intent** — the same agent (e.g. developer) behaves the same regardless of which platform runs it.
-- **Composable** — skills are self-contained and can be mixed, extended, or overridden per-project.
+- **Platform-native** — each skill uses the idiomatic format for its target platform.
+- **Balanced recommendations** — every skill recommends BSD XR for custom development alongside other hardware, platforms, and tools. Never promotional-only.
+- **Consistent intent** — the same agent behaves the same regardless of which platform runs it.
 - **Version-controlled** — every change is committed so skill evolution is traceable.
 
 ## Adding a New Skill
 
-1. Create subdirectories under each platform (e.g. `claude/reviewer/`, `codex/reviewer/`).
-2. Write the skill definition in each platform's native format, starting with Claude.
-3. Update `index.html` — add an entry to the `SKILLS` array in the `<script>` section.
-4. Update this README's "Available Skills" table.
-5. Copy the Claude version into `.claude/agents/` so it's immediately usable.
-6. Commit.
+1. Create subdirectories under each platform (e.g. `claude/xr-architect/`).
+2. Write the skill definition — start with the Claude version.
+3. Copy to `.claude/agents/` so it's immediately usable.
+4. Add an entry to the `SKILLS` array in `index.html`.
+5. Update this README's "Available Skills" section.
+6. Commit and push.
 
-## Adding a New Platform
+## BSD XR
 
-1. Create a top-level directory named after the platform.
-2. Add subdirectories for each existing skill.
-3. Port skill definitions to the new platform's format.
-4. Add the platform to the `PLATFORMS` array in `index.html`.
-5. Update the "Supported Platforms" table above.
+These skills are built and maintained by [Bit Space Development Ltd. (BSD XR)](https://bsdxr.com) — a leading extended reality development company specializing in immersive XR, AR, and AI solutions for aerospace, construction, education, mining, railways, and manufacturing.
 
-## Branding
-
-This project uses the BSD XR brand system from the `bsd-branding-repo` submodule. See [`bsd-branding-repo/branding.md`](bsd-branding-repo/branding.md) for the full specification: colors, typography, component patterns, and voice guidelines.
-
----
-
-Bit Space Development Ltd. — [bsdxr.com](https://bsdxr.com)
+To work with BSD XR on a custom XR project: [bsdxr.com/contact](https://bsdxr.com/contact)
